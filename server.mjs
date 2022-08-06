@@ -3,6 +3,8 @@ import express from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
 
+
+
 // import constants
 import CELL_STATUSES from './constants/CELL_STATUSES.mjs';
 import INIT_GRID_DATA from './constants/INIT_GRID_DATA.mjs';
@@ -11,6 +13,8 @@ import INIT_PLAYERS_DATA from './constants/INIT_PLAYERS_DATA.mjs';
 // import helpers functions
 import canHover from './helpers/canHover.mjs';
 
+const { PORT, HOST } = process.env;
+
 const app = express();
 app.use(cors());
 
@@ -18,8 +22,8 @@ const httpServer = http.createServer(app);
 
 const io = new Server(httpServer, {
 	cors: {
-		origin: 'http://localhost:3000',
-		methods: ['GET', 'POST'],
+		origin: '*',
+		methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 	},
 });
 
@@ -165,6 +169,11 @@ io.on('connection', (socket) => {
 		});
 
 		});
+
+
+		socket.on('resetRooms', (data) => {
+			rooms = {}
+		});
 	/*
 
 const INIT_PLAYERS_DATA = {
@@ -189,6 +198,6 @@ const INIT_PLAYERS_DATA = {
 */
 });
 
-httpServer.listen(5000, () => {
-	console.log('Server started on port 5000...');
+httpServer.listen(PORT, HOST, () => {
+	console.log(`Server listening on ${HOST}:${PORT}...`);
 });
