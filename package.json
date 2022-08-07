@@ -1,15 +1,30 @@
 {
-	"scripts": {
-		"start": "node -r dotenv/config index.mjs",
-		"dev": "nodemon -r dotenv/config index.mjs"
-	},
-	"dependencies": {
-		"cors": "^2.8.5",
-		"dotenv": "^16.0.1",
-		"express": "^4.18.1",
-		"socket.io": "^4.5.1"
-	},
-	"devDependencies": {
-		"nodemon": "^2.0.19"
-	}
+  "scripts": {
+    "start": "node -r dotenv/config index.mjs",
+    "dev": "nodemon -r dotenv/config index.mjs"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "socket.io": "^4.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "name": "battleship-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IradDoron/battleship-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IradDoron/battleship-server/issues"
+  },
+  "homepage": "https://github.com/IradDoron/battleship-server#readme",
+  "description": ""
 }
