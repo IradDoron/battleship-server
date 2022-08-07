@@ -1,7 +1,7 @@
 {
 	"scripts": {
-		"start": "node -r dotenv/config server.mjs",
-		"dev": "nodemon -r dotenv/config server.mjs"
+		"start": "node -r dotenv/config index.mjs",
+		"dev": "nodemon -r dotenv/config index.mjs"
 	},
 	"dependencies": {
 		"cors": "^2.8.5",
