@@ -25,7 +25,10 @@ const io = new Server(httpServer, {
 
 let rooms = {};
 
-app.use(cors());
+app.use(cors({
+	origin: 'https://battleship-irad.netlify.app/',
+	methods: 'GET',
+}));
 
 io.on('connection', (socket) => {
 	console.log('user connected');
