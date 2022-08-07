@@ -3,11 +3,8 @@ import express from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
 
-
-
 // import constants
 import CELL_STATUSES from './constants/CELL_STATUSES.mjs';
-import INIT_GRID_DATA from './constants/INIT_GRID_DATA.mjs';
 import INIT_PLAYERS_DATA from './constants/INIT_PLAYERS_DATA.mjs';
 
 // import helpers functions
