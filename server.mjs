@@ -27,7 +27,7 @@ const io = new Server(httpServer, {
 	},
 });
 
-const rooms = {};
+let rooms = {};
 
 io.on('connection', (socket) => {
 	console.log('user connected');
@@ -174,28 +174,7 @@ io.on('connection', (socket) => {
 		socket.on('resetRooms', (data) => {
 			rooms = {}
 		});
-	/*
-
-const INIT_PLAYERS_DATA = {
-	player1: {
-		name: '',
-		gridData: INIT_GRID_DATA,
-		legend: INIT_LEGEND,
-		currLegendIndex: 0,
-		isShipVertical: false,
-		isEditModeOn: true,
-	},
-	player2: {
-		name: '',
-		gridData: INIT_GRID_DATA,
-		legend: INIT_LEGEND,
-		currLegendIndex: 0,
-		isShipVertical: false,
-		isEditModeOn: true,
-	},
-};
-
-*/
+	
 });
 
 httpServer.listen(PORT, HOST, () => {
