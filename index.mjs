@@ -13,7 +13,6 @@ import canHover from './helpers/canHover.mjs';
 const { PORT, HOST } = process.env;
 
 const app = express();
-app.use(cors());
 
 const httpServer = http.createServer(app);
 
@@ -25,6 +24,8 @@ const io = new Server(httpServer, {
 });
 
 let rooms = {};
+
+app.use(cors());
 
 io.on('connection', (socket) => {
 	console.log('user connected');
