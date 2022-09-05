@@ -42,8 +42,6 @@ function clearRooms() {
 }
 
 io.on('connection', (socket) => {
-	console.log('user connected');
-
 	// create room and initialize it
 	socket.on('createGame', (data) => {
 		const { userName, gameId } = data;
@@ -71,8 +69,6 @@ io.on('connection', (socket) => {
 	// join room the second player and send room data to user
 	socket.on('joinGame', (data) => {
 		const { userName, gameId } = data;
-		console.log('userName', userName);
-		console.log('gameId', gameId);
 		socket.join(gameId);
 		rooms[gameId].player2.name = userName;
 		io.in(gameId).emit('gameJoined', { roomData: rooms[gameId] });
@@ -388,17 +384,14 @@ io.on('connection', (socket) => {
 		const currentPlayerData = rooms[gameId][playerId];
 
 		function checkWin(opponentData) {
-			console.log('check win function fired');
 			for (let i = 0; i < opponentData.length; i++) {
 				for (let j = 0; j < opponentData[0].length; j++) {
-					console.log(opponentData[i][j]);
 					//return false if fine a number
 					if (opponentData[i][j] !== 'HIT' && opponentData[i][j] !== 'EMPTY') {
 						return false;
 					}
 				}
 			}
-			console.log('win!');
 			return true;
 		}
 
