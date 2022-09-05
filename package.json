@@ -14,7 +14,7 @@
   },
   "name": "battleship-server",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.mjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IradDoron/battleship-server.git"
