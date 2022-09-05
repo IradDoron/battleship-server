@@ -4,6 +4,7 @@ function canHover(isShipVertical, currShipSize, newGridData, cellCoords) {
 	const [rowIndex, colIndex] = cellCoords;
 
 	let flag = true;
+	
 	if (isShipVertical) {
 		for (let row = rowIndex; row < rowIndex + currShipSize; row++) {
 			if (

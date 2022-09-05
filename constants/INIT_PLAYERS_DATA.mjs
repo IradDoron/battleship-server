@@ -9,6 +9,11 @@ const INIT_PLAYERS_DATA = {
 		currLegendIndex: 0,
 		isShipVertical: false,
 		isEditModeOn: true,
+		isReady: false,
+		isWinner: '',
+		opponentGridData: INIT_GRID_DATA.map((row) =>
+			row.map((cell) => ({ cellStatus: cell, isHit: false }))
+		),
 	},
 	player2: {
 		name: '',
@@ -17,6 +22,11 @@ const INIT_PLAYERS_DATA = {
 		currLegendIndex: 0,
 		isShipVertical: false,
 		isEditModeOn: true,
+		isReady: false,
+		isWinner: '',
+		opponentGridData: INIT_GRID_DATA.map((row) =>
+			row.map((cell) => ({ cellStatus: cell, isHit: false }))
+		),
 	},
 };
 
