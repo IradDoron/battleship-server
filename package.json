@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "node -r dotenv/config index.mjs",
+    "start": "node index.mjs",
     "dev": "nodemon -r dotenv/config index.mjs"
   },
   "dependencies": {

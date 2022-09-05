@@ -21,7 +21,6 @@ const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
 	cors: {
 		origin: 'https://battleship-irad.netlify.app',
-		methods: 'GET',
 	},
 });
 
@@ -40,6 +39,10 @@ function clearRooms() {
 		}
 	}
 }
+
+app.get('/', (req, res) => {
+	res.send('Hello World!');
+});
 
 io.on('connection', (socket) => {
 	console.log('a user connected');
@@ -75,9 +78,9 @@ io.on('connection', (socket) => {
 		(rooms[gameId].player2.opponentGridData = INIT_GRID_DATA.map((row) =>
 			row.map((cell) => ({ cellStatus: cell, isHit: false }))
 		)),
-		(rooms[gameId].player1.opponentGridData = INIT_GRID_DATA.map((row) =>
-			row.map((cell) => ({ cellStatus: cell, isHit: false }))
-		)),
+			(rooms[gameId].player1.opponentGridData = INIT_GRID_DATA.map((row) =>
+				row.map((cell) => ({ cellStatus: cell, isHit: false }))
+			)),
 			io.in(gameId).emit('gameJoined', { roomData: rooms[gameId] });
 	});
 
@@ -452,6 +455,12 @@ io.on('connection', (socket) => {
 			playersData: rooms[gameId],
 		});
 	});
+
+	socket.on('disconnect', () => {
+		console.log('user disconnected');
+	});
 });
 
-httpServer.listen(PORT);
+httpServer.listen(PORT, () => {
+	console.log(`Server is running on port ${PORT}`);
+});
