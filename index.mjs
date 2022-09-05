@@ -12,7 +12,7 @@ import INIT_PLAYERS_DATA from './constants/INIT_PLAYERS_DATA.mjs';
 // import helpers functions
 import canHover from './helpers/canHover.mjs';
 
-const { PORT, HOST } = process.env;
+const { PORT } = process.env;
 
 const app = express();
 
@@ -454,4 +454,4 @@ io.on('connection', (socket) => {
 	});
 });
 
-httpServer.listen(PORT, HOST);
+httpServer.listen(PORT);
