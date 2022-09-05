@@ -42,6 +42,7 @@ function clearRooms() {
 }
 
 io.on('connection', (socket) => {
+	console.log('a user connected');
 	// create room and initialize it
 	socket.on('createGame', (data) => {
 		const { userName, gameId } = data;
