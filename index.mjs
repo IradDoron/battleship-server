@@ -20,7 +20,7 @@ const httpServer = http.createServer(app);
 
 const io = new Server(httpServer, {
 	cors: {
-		origin: '*',
+		origin: 'https://battleship-irad.netlify.app',
 		methods: 'GET',
 	},
 });
@@ -454,6 +454,4 @@ io.on('connection', (socket) => {
 	});
 });
 
-httpServer.listen(PORT, HOST, () => {
-	console.log(`Server listening on ${HOST}:${PORT}...`);
-});
+httpServer.listen(PORT, HOST);
